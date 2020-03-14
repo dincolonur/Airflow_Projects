@@ -19,6 +19,8 @@ Main component of the flow.
 
 Source code: /home/airflow/dags/s3_to_redshift_dag.py
 
+![DAG Image](https://github.com/dincolonur/Airflow_Projects/blob/master/Airflow-S3-Redshift-Pipeline/images/project-dag.png)
+
 ### OPERATORS:
 
 ### Stage Operator:
