@@ -16,6 +16,7 @@ Song data: s3://onur-s3-test-bucket/song_data
 
 ### DAG:
 Main component of the flow.
+
 Source code: /home/airflow/dags/s3_to_redshift_dag.py
 
 ### OPERATORS:
@@ -25,6 +26,7 @@ The stage operator loads JSON formatted files from S3 to Amazon Redshift staging
 The operator creates and runs a SQL COPY statement based on the parameters provided.
 The operator's parameters specify where in S3 the file is loaded and what is the target table.
 staging_events and staging_songs tables are the target tables in this project.
+
 Source code: /home/airflow/plugins/operators/stage_redshift.py
 
 ### Fact and Dimension Operators:
@@ -35,7 +37,9 @@ Dimension loads are often done with the truncate-insert pattern where the target
 We could also have a parameter that allows switching between insert modes when loading dimensions.
 Fact tables are usually so massive that they should only allow append type functionality.
 In this project Fact Table: songplays, Dimension Tables: artists, songs, users, time
+
 Source code: /home/airflow/plugins/operators/load_fact.py
+
 Source code: /home/airflow/plugins/operators/load_dimension.py
 
 
@@ -46,4 +50,5 @@ For each the test, the test result and expected result needs to be checked and i
 
 For example one test could be a SQL statement that checks if certain column contains NULL values by counting all the rows that have NULL in the column.
 We do not want to have any NULLs so expected result would be 0 and the test would compare the SQL statement's outcome to the expected result.
+
 Source code: /home/airflow/plugins/operators/data_quality.py
